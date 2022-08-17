@@ -29,4 +29,4 @@
 
 <img src="img/docker_versus_vm.png" alt="docker_versus_vm" style="zoom:50%;" />
 
-<img src="img/R-C.png" alt="R-C" style="zoom: 80%;" />
+![container_versus_vm](img/container_versus_vm.png)
