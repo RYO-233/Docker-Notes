@@ -2,6 +2,8 @@
 
 # Docker概述
 
+<https://jiajially.gitbooks.io/dockerguide/content/index.html>
+
 ## Docker为什么出现？
 
 对于一款产品，从开发到上线，其间处于两套不同的环境！这其中的环境和配置比较复杂。如，每台计算机都需要部署环境(集群Redis、Hadoop...)
