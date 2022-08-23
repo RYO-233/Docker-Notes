@@ -12,8 +12,6 @@
 
    ```shell
    vim /home/dockerfile-test/dockerfile
-   
-   
    ```
    ```shell
    FROM centos:7
@@ -32,7 +30,7 @@
    CMD echo "end..."
    CMD /bin/bash
    ```
-
+   
 2. docker build 构建一个镜像：
 
    ```shell
@@ -143,7 +141,56 @@ drwxr-xr-x.   1 root root     6 Aug 22 03:32 ..
 
 ### 2、编写 DockerFile 文件
 
+```shell
+FROM centos:7.6
+
+# 标注信息
+MAINTAINER nishimiya<nishimiya@163.com>
+
+# 将 文件 复制到指定目录(需要使用相对路径)
+COPY ./readme.txt /usr/local/readme.txt
+
+# 将 压缩文件 添加到指定目录，并解压
+ADD jdk-8u202-linux-x64.tar.gz /usr/local/
+ADD apache-tomcat-8.5.81.tar.gz /usr/local/
+
+# 安装 vim 和 net-tools 工具，build 时执行
+RUN yum -y install vim
+RUN yum -y install net-tools
+
+# 设置工作目录
+ENV MYPATH /usr/local
+WORKDIR $MYPATH
+
+# JAVA ENV
+ENV JAVA_HOME /usr/local/jdk1.8.0_202
+ENV CLASS_PATH $JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+
+# TOMCAT ENV
+ENV CATALINA_HOME /usr/local/apache-tomcat-8.5.81
+ENV CATALINA_BASE /usr/local/apache-tomcat-8.5.81
+
+# ALL PATH
+ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/lib:$CATALINA_HOME/bin
+
+# 指定对外的端口
+EXPOSE 8080
+
+# 执行 tomcat 
+CMD /usr/local/apache-tomcat-8.5.81/bin/startup.sh && tail -F /usr/local/apache-tomcat-8.5.81/bin/logs/catalina.out
 ```
 
+### 3、build 一个镜像：
+
+```shell
+docker build -f /home/ryo/tomcat/dockerfile -t tomcat-ryo .
 ```
+
+### 4、run 镜像
+
+```shell
+docker run -d --name tomcat-demo-01 -p 8081:8080 -v /home/ryo/tomcat/test:/usr/local/apache-tomcat-8.5.81/webapps/test -v /home/ryo/tomcat/logs:/usr/local/apache-tomcat-8.5.81/logs tomcat-demo
+```
+
+### 5、发布镜像
 
