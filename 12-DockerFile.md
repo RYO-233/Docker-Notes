@@ -18,6 +18,8 @@ Docker Container： 是用来提供服务的。
 
    ```shell
    vim /home/dockerfile-test/dockerfile
+   
+   
    ```
 
 2. docker build 构建一个镜像：
