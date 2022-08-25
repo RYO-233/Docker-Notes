@@ -6,6 +6,8 @@
 >
 > ​	DockerFile 是面向开发的。
 
+<img src="img/dockerfile.jpg" alt="dockerfile" style="zoom: 80%;" />
+
 ## DockerFile 构建步骤：
 
 1. 编写一个 dockerfile 文件：
@@ -125,6 +127,28 @@ total 12
 drwxr-xr-x.   1 root root     6 Aug 22 03:32 .
 drwxr-xr-x.   1 root root     6 Aug 22 03:32 ..
 -rwxr-xr-x.   1 root root     0 Aug 22 03:32 .dockerenv
+```
+
+## 发布镜像
+
+### 发布到 Docker Hub
+
+#### 登录到 DockerHub
+
+```shell
+docker login -u <user_name>
+```
+
+#### 创建一个标签
+
+```shell
+docker tag image_id image_name:tag
+```
+
+#### 上传到 DockerHub
+
+```shell
+docker push image_name:tag
 ```
 
 ## 案例：构建 Tomcat 镜像
