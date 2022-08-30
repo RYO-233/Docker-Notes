@@ -131,7 +131,7 @@ drwxr-xr-x.   1 root root     6 Aug 22 03:32 ..
 
 ## 发布镜像
 
-### 发布到 Docker Hub
+### 发布镜像到 Docker Hub
 
 #### 登录到 DockerHub
 
@@ -166,7 +166,7 @@ docker push image_name:tag
 ### 2、编写 DockerFile 文件
 
 ```shell
-FROM centos:7.6
+FROM centos:7
 
 # 标注信息
 MAINTAINER nishimiya<nishimiya@163.com>
@@ -178,9 +178,10 @@ COPY ./readme.txt /usr/local/readme.txt
 ADD jdk-8u202-linux-x64.tar.gz /usr/local/
 ADD apache-tomcat-8.5.81.tar.gz /usr/local/
 
-# 安装 vim 和 net-tools 工具，build 时执行
+# 安装 vim 和 net 以及 IP 工具，build 时执行
 RUN yum -y install vim
 RUN yum -y install net-tools
+RUN yum -y install iproute
 
 # 设置工作目录
 ENV MYPATH /usr/local
