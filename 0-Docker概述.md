@@ -1,10 +1,8 @@
 [toc]
 
-# Docker概述
+# Docker 概述
 
-<https://jiajially.gitbooks.io/dockerguide/content/index.html>
-
-## Docker为什么出现？
+## Docker 为什么出现？
 
 > ​	对于一款产品，从开发到上线，经历了两套不同的环境！这其中的环境和配置比较复杂。
 > ​	如，每台计算机都需要部署环境(集群Redis、Hadoop...)
@@ -13,7 +11,7 @@
 >
 > ​	为了能够一同打包部署上线，Docker 给出了解决方案。
 
-## Docker的思想
+## Docker 的思想
 
 >   ​	Docker 是一个用于开发，交付和运行应用程序的开放平台。
 >
@@ -29,7 +27,7 @@
 >
 > ​	容器是完全使用__<span style="color: red">沙箱机制</span>__，*相互之间不会有任何接口（类似 iPhone 的 app）*。 *几乎没有性能开销,可以很容易地在机器和数据中心中运行*。最重要的是,*他们不依赖于任何语言、框架包括系统*。
 
-## Docker的历史
+## Docker 的历史
 
 > ​	2010年，有一群搞 IT 的年轻人，在美国成立了一家公司`DotCloud`。做一些 `PaaS 云计算服务！LXC(Linux Containers：Linux 容器项目)`有关的容器技术！他们将其容器化技术，进行了统一化命名：Docker!
 >
@@ -56,6 +54,8 @@ Docker：镜像(Linux最核心的环境 + jdk + mysql)，简单安装，十分�
 > ​	Docker 文档地址：<https://docs.docker.com/>
 >
 > ​	Docker 仓库地址：<https://hub.docker.com/>
+>
+> ​	Docker 简明教程：<https://jiajially.gitbooks.io/dockerguide/content/index.html>
 
 ## Docker 能做什么？
 
@@ -117,5 +117,4 @@ LXC 技术主要是借助 Linux 内核中提供的 CGroup 功能和 name space �
 #### cgroup 和 namespace 两者对比：
 
 > 两者都是将进程进行分组，但是两者的作用还是有本质区别。namespace 是为了隔离进程组之间的资源，而 cgroup 是为了对一组进程进行统一的资源监控和限制。
-
 

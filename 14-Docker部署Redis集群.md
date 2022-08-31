@@ -1,6 +1,6 @@
 [toc]
 
-# Redis集群
+# Redis 集群
 
 ![redis_group](img/dredis_group.jpg)
 
