@@ -94,7 +94,7 @@ docker-compose version
 #### 1) 创建一个 目录
 
 ```shell
-mkdir composetest
+mkdir composetest # 创建一个项目目录
 cd composetest
 ```
 
@@ -188,6 +188,23 @@ services:
 
 ### Step 4: 启动 compose 项目
 ```shell
-docker compose up -d  # 后台运行
+docker compose up [-d]  # -d: 后台运行
 ```
 
+### Step 5: 停止 compose 项目
+
+```shell
+docker compose down [--volumes] # 停止容器所有内容，完全删除容器。传递 --volumes 也删除 Redis 容器使用的数据卷。
+
+# or CTRL + R
+
+docker compose stop # 如果使用 docker compose up -d，使用 stop 在完成后停止服务
+```
+
+## yml 规则
+
+
+
+## P13 编写微服务
+
+- [ ] 自己编写微服务上线
