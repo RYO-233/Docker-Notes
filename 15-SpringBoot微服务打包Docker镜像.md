@@ -2,7 +2,7 @@
 
 - [x] mysql
 
-- [ ] sql server
+- [x] sql server
 
 - [ ] oracle
 

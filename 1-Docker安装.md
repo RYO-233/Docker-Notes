@@ -4,7 +4,7 @@
 
 ## Docker 基本组成
 
-<img src="img/OIP-C.jpg" alt="查看源图像" style="zoom:150%;" />
+![architecture](img/architecture.svg)
 
 ### 镜像(images)：
 
