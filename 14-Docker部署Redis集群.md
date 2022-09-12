@@ -2,7 +2,7 @@
 
 # Redis 集群
 
-![redis_group](img/dredis_group.jpg)
+![redis_group](img/redis_group.jpg)
 
 ## Redis 集群介绍
 

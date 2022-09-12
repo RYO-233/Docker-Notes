@@ -58,7 +58,7 @@ docker swarm init --advertise-addr 192.168.200.151
 
 #### 作为 worker node 加入
 
-To retrieve the join command including the join token for worker nodes, run the following command on a manager node:
+> ​	要检索 worker 节点的 join 命令，包括 join 令牌，在管理节点上运行以下命令:
 
 ```shell
 $ docker swarm join-token worker
@@ -70,7 +70,7 @@ To add a worker to this swarm, run the following command:
     192.168.99.100:2377
 ```
 
-Run the command from the output on the worker to join the swarm:
+> ​	在 worker 的回显信息中输入加入集群的命令:
 
 ```shell
 $ docker swarm join \
@@ -80,22 +80,22 @@ $ docker swarm join \
 This node joined a swarm as a worker.
 ```
 
-The `docker swarm join` command does the following:
+' docker swarm join '命令执行如下操作:
 
-- switches the Docker Engine on the current node into swarm mode.
-- requests a TLS certificate from the manager.
-- names the node with the machine hostname
-- joins the current node to the swarm at the manager listen address based upon the swarm token.
-- sets the current node to `Active` availability, meaning it can receive tasks from the scheduler.
-- extends the `ingress` overlay network to the current node.
+- 将当前节点上的Docker引擎切换为集群模式。
+- 向管理器请求TLS证书。
+- 用机器主机名命名节点
+- 根据群令牌在manager监听地址加入当前节点到群中。
+- 设置当前节点为' Active '可用性，这意味着它可以从调度器接收任务。
+- 扩展' ingress '覆盖网络到当前节点
 
 #### 作为 manager node 加入
 
-When you run `docker swarm join` and pass the manager token, the Docker Engine switches into swarm mode the same as for workers. Manager nodes also participate in the raft consensus. The new nodes should be `Reachable`, but the existing manager remains the swarm `Leader`.
+当你运行`docker swarm join`并传递经理令牌时，docker Engine 会切换到 swarm 模式，就像workers 一样。经理节点也参与筏子共识。新的节点应该是“可到达的”，但现有的管理器仍然是集群的“领导者”。
 
-Docker recommends three or five manager nodes per cluster to implement high availability. Because swarm mode manager nodes share data using Raft, there must be an odd number of managers. The swarm can continue to function after as long as a quorum of more than half of the manager nodes are available.
+Docker 建议每个集群有 3 到 5 个管理节点来实现高可用性。因为群模式管理器节点使用 Raft 共享数据，所以必须有奇数个管理器。只要管理节点的仲裁数超过一半，集群就可以继续工作。
 
-For more detail about swarm managers and administering a swarm, see [Administer and maintain a swarm of Docker Engines](https://docs.docker.com/engine/swarm/admin_guide/).
+有关蜂群管理器和管理蜂群的更多细节，请参见[Administer and maintain a swarm of Docker Engines](https://docs.docker.com/engine/swarm/admin_guide/).
 
 To retrieve the join command including the join token for manager nodes, run the following command on a manager node:
 
